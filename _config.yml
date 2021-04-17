@@ -1,6 +1,6 @@
 #plantilla remota
-#remote_theme:  artemsheludko/flexible-jekyll
-theme: jekyll-theme-tactile
+remote_theme:  artemsheludko/flexible-jekyll
+#theme: jekyll-theme-tactile
 
 title: Carlos Polanco
 description: > # this means to ignore newlines until "baseurl:"
