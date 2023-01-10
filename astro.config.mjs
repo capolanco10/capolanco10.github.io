@@ -1,73 +1,33 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 import { defineConfig } from 'astro/config';
-
+import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
-import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
-import compress from 'astro-compress';
+import robotsTxt from 'astro-robots-txt';
+import { astroImageTools } from 'astro-imagetools';
 
-import { remarkReadingTime } from './src/utils/frontmatter.mjs';
-import { SITE } from './src/config.mjs';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const whenExternalScripts = (items = []) =>
-  SITE.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
-
+// https://astro.build/config
 export default defineConfig({
-  site: SITE.origin,
-  base: SITE.basePathname,
-  trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-
-  output: 'static',
-
-  integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
-    sitemap(),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
-    mdx(),
-
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
-    ),
-
-    compress({
-      css: true,
-      html: true,
-      img: false,
-      js: true,
-      svg: false,
-
-      logger: 1,
-    }),
-  ],
-
-  markdown: {
-    remarkPlugins: [remarkReadingTime],
-    extendDefaultPlugins: true,
+  // base: '.', // Set a path prefix.
+  site: 'https://capolanco10.github.io/', // Use to generate your sitemap and canonical URLs in your final build.
+  // Important!
+  // Only official '@astrojs/*' integrations are currently supported by Astro.
+  // Add 'experimental.integrations: true' to make 'astro-robots-txt' working
+  // with 'astro build' command.
+  experimental: {
+    integrations: true,
   },
-
-  vite: {
-    resolve: {
-      alias: {
-        '~': path.resolve(__dirname, './src'),
-      },
+  markdown: {
+    shikiConfig: {
+      // Choose from Shiki's built-in themes (or add your own)
+      // https://github.com/shikijs/shiki/blob/main/docs/themes.md
+      theme: 'monokai',
     },
   },
-
-  experimental: {
-    contentCollections: true,
-  },
+  integrations: [
+    react(),
+    tailwind({}),
+    sitemap(),
+    robotsTxt(),
+    astroImageTools,
+  ],
 });

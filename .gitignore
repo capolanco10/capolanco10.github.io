@@ -11,15 +11,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
-.env
-.env.production
+.env*.local
 
 # macOS-specific files
 .DS_Store
 
-package-lock.json
-pnpm-lock.yaml
-
-src/content/types.generated.d.ts
+# misc
+*.pem
+Thumbs.db
