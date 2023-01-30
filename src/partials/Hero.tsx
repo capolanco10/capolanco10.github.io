@@ -10,54 +10,44 @@ const Hero = () => (
     <HeroAvatar
       title={
         <>
-          Hi there, I'm <GradientText>Ixartz</GradientText> 👋
+          Hola, soy <GradientText>Carlos Polanco</GradientText> 👋
         </>
       }
       description={
         <>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus{' '}
-          <a className="text-cyan-400 hover:underline" href="/">
-            malesuada
-          </a>{' '}
-          nisi tellus, non imperdiet nisi tempor at. Lorem ipsum dolor sit amet,{' '}
-          <a className="text-cyan-400 hover:underline" href="/">
-            consectetur
-          </a>{' '}
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+          <h2 className="text-cyan-400">
+            Apasionado por la innovación y el mejoramiento continuo.
+          </h2>
+          Con 2 años de experiencia bajo el rol de Líder tecnico al servicio del
+          equipo de desarrollo con el fin de lograr los mejores resultados.{' '}
+          <GradientText>
+            Con más de 10 años de experiencia en desarrollo de software
+          </GradientText>
+          , enfocados en la experiencia y satisfacción de los clientes, desde la
+          etapa de viabilidad hasta la ejecución y cierre bajo el marco de
+          buenas prácticas.
         </>
       }
       avatar={
         <img
           className="h-80 w-64"
           src="/assets/images/avatar.svg"
-          alt="Avatar image"
+          alt="Capolanco10"
           loading="lazy"
         />
       }
       socialButtons={
         <>
-          <a href="/">
+          <a href="https://twitter.com/capolanco10">
             <HeroSocial
               src="/assets/images/twitter-icon.png"
-              alt="Twitter icon"
+              alt="Twitter @capolanco10"
             />
           </a>
-          <a href="/">
-            <HeroSocial
-              src="/assets/images/facebook-icon.png"
-              alt="Facebook icon"
-            />
-          </a>
-          <a href="/">
+          <a href="https://co.linkedin.com/in/carlospolancodev/">
             <HeroSocial
               src="/assets/images/linkedin-icon.png"
-              alt="Linkedin icon"
-            />
-          </a>
-          <a href="/">
-            <HeroSocial
-              src="/assets/images/youtube-icon.png"
-              alt="Youtube icon"
+              alt="Linkedin carlospolancodev"
             />
           </a>
         </>
